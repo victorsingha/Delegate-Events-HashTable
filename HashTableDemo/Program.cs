@@ -23,10 +23,10 @@ namespace HashTableDemo
             //Console.WriteLine("5th index value: " + hash5);
             //string hash2 = hash.Get("2");
             //Console.WriteLine("2th index value: " + hash2);
-            Count_Frequency("to be or not to be");
+            Count_Frequency("to be or not to be","to");
             Console.ReadKey();
         }
-        public static void Count_Frequency(string line)
+        public static void Count_Frequency(string line,string w)
         {
             string[] lineArray = line.Split(' ');
             //List<MyMapNode<string,int>> hash = new List<MyMapNode<string, int>>();
@@ -35,15 +35,16 @@ namespace HashTableDemo
             {
                 if (hash.Get(word) != null)
                 {
-                    hash.Add(word, hash.Get(word)+1);
-                    Console.WriteLine(hash.Get(word));
+                    int count = hash.Get(word);
+                    hash.Remove(word);
+                    hash.Add(word, count+1);
                 }
                 else
                 {
                     hash.Add(word, 1);
-                    Console.WriteLine(hash.Get(word));
                 }
             }
+                Console.WriteLine($"Count of `{w}` is {hash.Get(w)}");
         }
     }
 
