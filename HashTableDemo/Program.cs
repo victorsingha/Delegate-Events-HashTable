@@ -23,13 +23,12 @@ namespace HashTableDemo
             //Console.WriteLine("5th index value: " + hash5);
             //string hash2 = hash.Get("2");
             //Console.WriteLine("2th index value: " + hash2);
-            Count_Frequency("to be or not to be","to");
+            Count_Frequency("to be or or not to to to be be be","be");
             Console.ReadKey();
         }
         public static void Count_Frequency(string line,string w)
         {
             string[] lineArray = line.Split(' ');
-            //List<MyMapNode<string,int>> hash = new List<MyMapNode<string, int>>();
             MyMapNode<string, int> hash = new MyMapNode<string, int>(lineArray.Length);
             foreach (string word in lineArray)
             {
