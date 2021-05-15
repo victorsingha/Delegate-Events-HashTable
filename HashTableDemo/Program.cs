@@ -12,7 +12,7 @@ namespace HashTableDemo
         static void Main(string[] args)
         {
             //Console.WriteLine("Hash table demo");
-            //MyMapNode<string, string> hash = new MyMapNode<string, string>(5);
+            MyMapNode<string, string> hash = new MyMapNode<string, string>(5);
             //hash.Add("0", "To");
             //hash.Add("1", "be");
             //hash.Add("2", "or");
@@ -29,17 +29,19 @@ namespace HashTableDemo
         public static void Count_Frequency(string line)
         {
             string[] lineArray = line.Split(' ');
-            List<MyMapNode<string,int>> hash = new List<MyMapNode<string, int>>();
+            //List<MyMapNode<string,int>> hash = new List<MyMapNode<string, int>>();
+            MyMapNode<string, int> hash = new MyMapNode<string, int>(lineArray.Length);
             foreach (string word in lineArray)
             {
-                if (true)
+                if (hash.Get(word) != null)
                 {
-                    //int count = hash.Values;
-                    //hash.Add(word, count + 1);
+                    hash.Add(word, hash.Get(word)+1);
+                    Console.WriteLine(hash.Get(word));
                 }
                 else
                 {
-                    //hash.Add(word, 1);
+                    hash.Add(word, 1);
+                    Console.WriteLine(hash.Get(word));
                 }
             }
         }
