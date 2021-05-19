@@ -23,7 +23,10 @@ namespace HashTableDemo
             //Console.WriteLine("5th index value: " + hash5);
             //string hash2 = hash.Get("2");
             //Console.WriteLine("2th index value: " + hash2);
-            Count_Frequency("to be or or not to to to be be be","be");
+            Count_Frequency("to has has or or not to to to be be be","has");
+            Count_Frequency("Paranoids are not paranoid because they are paranoid but" +
+                                          "because they keep putting themseleves deliberately into" +
+                                          " paranoid avoidable situations", "paranoid");
             Console.ReadKey();
         }
         public static void Count_Frequency(string line,string w)
@@ -32,7 +35,8 @@ namespace HashTableDemo
             MyMapNode<string, int> hash = new MyMapNode<string, int>(lineArray.Length);
             foreach (string word in lineArray)
             {
-                if (hash.Get(word) != null)
+                //if (hash.Get(word) != null)
+                if(hash.Exists(word))
                 {
                     int count = hash.Get(word);
                     hash.Remove(word);
@@ -44,6 +48,7 @@ namespace HashTableDemo
                 }
             }
                 Console.WriteLine($"Count of `{w}` is {hash.Get(w)}");
+            hash.Display();
         }
     }
 

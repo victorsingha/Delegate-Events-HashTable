@@ -74,6 +74,37 @@ namespace HashTableDemo
             }
             return linkedList;
         }
+        public void Display()
+        {
+            foreach (var item in items)
+            {
+                if (item != null)
+                {
+                    foreach (KeyValue<K, V> keyValuePair in item)
+                    {
+                        Console.WriteLine($"{keyValuePair.Key} [{keyValuePair.Value}]");
+                    }
+                }
+
+            }
+        }
+        public bool Exists(K word)
+        {
+            foreach (var subitem in items)
+            {
+                if (subitem != null)
+                {
+                    foreach (KeyValue<K, V> item in subitem)
+                    {
+                        if (item.Key.Equals(word))
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
     }
 
     public struct KeyValue<k, v>
